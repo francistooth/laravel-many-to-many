@@ -1,0 +1,59 @@
+header {
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+li {
+    list-style: none;
+    line-height: 50px;
+}
+
+aside {
+    width: 200px;
+    height: 100%;
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.main-wrapper {
+    height: calc(100vh - 57px);
+
+}
+
+.content {
+    overflow: auto;
+}
+
+.card-body {
+    width: 400px;
+}
+
+table {
+    tbody {
+        tr {
+            td {
+                &:hover {
+                    background-color: aquamarine;
+                }
+            }
+        }
+    }
+}
+
+// a[aria-label] {
+//     display: none;
+// }
