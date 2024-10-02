@@ -4,8 +4,8 @@
         <div>
             <ul class="navbar">
                 @guest
-                    <li class="nav-item mr-2"><a href="{{ route('login') }}">Login</a></li>
-                    <li class="nav-item mr-2"><a href="{{ route('register') }}">Registrati</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}">Login</a></li>
+                    <li class="nav-item"><a href="{{ route('register') }}">Registrati</a></li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

@@ -29,6 +29,20 @@
                     </select>
 
                 </div>
+                {{-- TAG --}}
+                <div class="mb-3">
+                    <label for="tag" class="form-label d-block">Tag (*)</label>
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        @foreach ($tags as $tag)
+                            <input type="checkbox" class="btn-check" id="{{ $tag->id }}" autocomplete="off"
+                                name="tags[]" value="{{ $tag->id }}">
+                            <label class="btn btn-outline-primary" for="{{ $tag->id }}">{{ $tag->name }}</label>
+                        @endforeach
+
+                    </div>
+
+
+                </div>
                 {{-- TEXT --}}
                 <div class="mb-3">
                     <label for="text" class="form-label">Descrizione (*)</label>

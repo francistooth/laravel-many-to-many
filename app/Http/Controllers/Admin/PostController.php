@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Functions\Helper;
 
 
@@ -27,7 +28,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -45,9 +47,13 @@ class PostController extends Controller
     $data['slug'] = Helper::generateSlug($data['title'], Post::class);
 
     // Crea il nuovo post con i dati e lo slug generato
-    $new_post = Post::create($data);
+    $post = Post::create($data);
 
-    return redirect()->route('admin.posts.index', $new_post->id)->with('success', 'Post creato con successo');
+    if (array_key_exists('tags', $data)) {
+        $post->tags()->attach($data['tags']);
+    }
+
+    return redirect()->route('admin.posts.index', $post->id)->with('success', 'Post creato con successo');
 }
 
 
